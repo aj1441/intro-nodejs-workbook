@@ -21,3 +21,6 @@ if (dogAgeInHumanYears === 1) {
 
 //RESPONSE: Send the response back to the frontend so that it can be displayed to the user
 console.log(`Your dog ${dogName} is ${dogTotalYears} years old in dog years.`);
+
+
+// trying to add a few changes to this document to see if I can resolve the issue with the git push, as it continues to ask for my git login credentials.  I have tried to update the git credentials in the terminal, but it still does not work.  I will try to add a few changes to this document and see if that helps.  

@@ -11,13 +11,13 @@ let dogRemainingYears = 5;
 // let totalDogYears = dogFirstYear + dogSecondYear + (dogRemainingYears * (dogAgeInHumanYears - 2));
 let dogTotalYears;
 if (dogAgeInHumanYears === 1) {
-    dogTotalYears = dogFirstYear;
+  dogTotalYears = dogFirstYear;
 } else if (dogAgeInHumanYears === 2) {
-    dogTotalYears = dogFirstYear + dogSecondYear;
+  dogTotalYears = dogFirstYear + dogSecondYear;
 } else {
-    dogTotalYears = dogFirstYear + dogSecondYear + (dogRemainingYears * (dogAgeInHumanYears - 2));
+  dogTotalYears =
+    dogFirstYear + dogSecondYear + dogRemainingYears * (dogAgeInHumanYears - 2);
 }
-
 
 //RESPONSE: Send the response back to the frontend so that it can be displayed to the user
 console.log(`Your dog ${dogName} is ${dogTotalYears} years old in dog years.`);

@@ -2,12 +2,12 @@
 
 // const moment = require('moment');
 
-import moment from 'moment';
+import moment from "moment";
 
-let isCurrentYearLeap = moment().format();
+let isCurrentYearLeap = moment().isLeapYear();
 
 if (isCurrentYearLeap) {
-  console.log('Current year is a leap year');
+  console.log("Current year is a leap year");
 } else {
-  console.log('Current year is not a leap year');
+  console.log("Current year is not a leap year");
 }

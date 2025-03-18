@@ -137,3 +137,16 @@ When the app receives an HTTP request to update the name of a specific recipe, i
 ##### Example Request
 
 `http://localhost:3000/update-recipe/1/Lasagna`
+
+
+//NOTES FOR CREATE AND INITIALIZE AN EXPRES NODE.JST
+//1.  Create a new directory for your project
+//2.  Navigate to the directory in the terminal
+//3.  Run npm init -y to create a package.json file
+//4.  Run npm install express to install the express module
+// 6. A a .gitignore file and add node_modules to it
+//7. Create a new directory called src
+//8.  Create a new file called index.js to store all of web server code.
+//9. Add all of your import statements (3rd party modules, node modules, your customer modules)
+//10. Add all of your boilerplate code (express, port, instance, app.listen)
+//11. Add the API endpoints

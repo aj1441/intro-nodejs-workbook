@@ -2,11 +2,11 @@
 
 //for commonjs
 //const express = require('express');
-//const fs = require('fs');
+//const fs = require('fs').promises;
 
-//for es6
+//for es6--this requires type="module" in package.json
 import express from "express"; // external module that will allow us to build a web server
-import fs from "fs"; // file system module that will allow us to read and write files
+import fsPromises from "fs/promises"; // file system module that will allow us to read and write files
 
 const app = express(); // create an instance of the express module so that we can use all the  methods/functions and properties of express in our web server
 
@@ -58,26 +58,62 @@ app.listen(port, () => {
 // boilerplate code will come first----then helper code block---then route or custom code block
 
 //Helper functions
-function getAllBooks() {
+async function getAllBooks() {
   //getting all of the book data
-  const books = fs.readFile("./data.json", "utf8", (err, data) => {
-    return data;
-  });
-  return books;
+  const books = await fsPromises.readFile("../data.json", "utf8");
+  let parsedBooks = JSON.parse(books);
+  console.log(parsedBooks);
+  return parsedBooks;
 }
+
+async function getOneBook(id) {
+  const books = await fsPromises.readFile("../data.json", "utf8");
+  let parsedBook = JSON.parse(books);
+  console.log(parsedBook);
+  return parsedBook[id];
+}
+
+async function deleteBook(id) {
+  const books = await fsPromises.readFile("../data.json", "utf8");
+  let parsedBooks = JSON.parse(books);
+  parsedBooks.splice(id, 1);
+  const stringBooks = JSON.stringify(parsedBooks);
+  await fsPromises.writeFile("../data.json", stringBooks, "utf8");
+}
+
 // 5-web-server/data.json
 
 //API Endpoints
 
 //The client has requested all of the books-- async before (req, res) says waitf for this whole function to finish before sending a response)
 app.get("/get-all-books", async (req, res) => {
-  const books = getAllBooks();
+  const books = await getAllBooks();
   res.send(JSON.stringify(books));
 });
 
-app.get("/get-one-books/:id", async (req, res) => {
-  const book = getOneBook(req.params.id);
+app.get("/get-one-book/:id", async (req, res) => {
+  const book = await getOneBook(req.params.id);
   res.send(JSON.stringify(book));
 });
 
+app.get("/delete-book/:id", async (req, res) => {
+  await deleteBook(req.params.id);
+  res.send("You deleteed the book!");
+});
+
 // best practices to declare functions that will be used in other functions first...........
+
+//if you do the flag --watch (node --watch index.js) it will automatically restart the server when you make changes to the file
+//if you do the flag --inspect (node --inspect index.js) it will allow you to use the chrome dev tools to debug your code
+
+//NOTES FOR CREATE AND INITIALIZE AN EXPRES NODE.JST
+//1.  Create a new directory for your project
+//2.  Navigate to the directory in the terminal
+//3.  Run npm init -y to create a package.json file
+//4.  Run npm install express to install the express module
+// 6. A a .gitignore file and add node_modules to it
+//7. Create a new directory called src
+//8.  Create a new file called index.js to store all of web server code.
+//9. Add all of your import statements (3rd party modules, node modules, your customer modules)
+//10. Add all of your boilerplate code (express, port, instance, app.listen)
+//11. Add the API endpoints

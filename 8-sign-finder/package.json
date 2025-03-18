@@ -1,0 +1,15 @@
+{
+  "name": "8-sign-finder",
+  "version": "1.0.0",
+  "description": "## 📌 Introduction",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "horoscope": "^2.0.1"
+  }
+}

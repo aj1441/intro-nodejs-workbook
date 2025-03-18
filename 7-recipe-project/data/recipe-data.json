@@ -1,6 +1,20 @@
 [
   {
-    "name": "Spaghetti with Red Sauce",
+    "name": "Spaghetti with White Sauce",
+    "cookingMethod": "stove-top boil",
+    "ingredients": [
+      "spaghetti",
+      "butter",
+      "flour",
+      "milk",
+      "salt",
+      "pepper",
+      "garlic",
+      "parmesan cheese"
+    ]
+  },
+  {
+    "name": "lasagna",
     "cookingMethod": "stove-top boil",
     "ingredients": [
       "spaghetti",

@@ -115,6 +115,11 @@ SELECT AVG(released_year) FROM programming_languages;
 -- What is the most recently released programming language in the table?
 
 SELECT name FROM programming_languages
-WHERE released-
+ORDER BY released_year DESC
+LIMIT 1;
 
 -- What are all the programming languages and their respective creators? Use INNER JOIN to join the two tables together. 
+SELECT p.name, d.name
+FROM programming_languages p
+JOIN developers d
+ON p.id = d.created_language_id;
